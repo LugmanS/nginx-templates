@@ -1,0 +1,20 @@
+services:
+  nodeapp:
+    build:
+      context: ./server
+  ng1:
+    hostname: ng1
+    container_name: ng1
+    image: nginx
+    ports:
+      - 80:8080
+    volumes:
+      - ./ng1.conf:/etc/nginx/nginx.conf
+  ng2:
+    hostname: ng2
+    container_name: ng2
+    image: nginx
+    ports:
+      - 81:8080
+    volumes:
+      - ./ng1.conf:/etc/nginx/nginx.conf
